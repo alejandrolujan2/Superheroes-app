@@ -1,18 +1,20 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 interface HeroProps {
   name: string;
   power: string;
   image: string;
+  // Aregarle dependiendo de la petición que se vaya a hacer
 }
 
-export default function HeroComponent({ name, power, image }: HeroProps) {
+export default function HeroComponent(props: { hero: HeroProps }) {
+  const heroAPI = props.hero;
   return (
     <View style={styles.card}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <Image source={{ uri: heroAPI.image }} style={styles.image} />
 
-      <Text style={styles.name}>{name}</Text>
-      <Text>{power}</Text>
+      <Text style={styles.name}>{heroAPI.name}</Text>
+      <Text>{heroAPI.power}</Text>
     </View>
   );
 }
