@@ -1,41 +1,63 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 
 interface HeroProps {
+  id: string;
   name: string;
   power: string;
   image: string;
-  // Aregarle dependiendo de la petición que se vaya a hacer
 }
 
-export default function HeroComponent(props: { hero: HeroProps }) {
-  const heroAPI = props.hero;
+interface Props {
+  hero: HeroProps;
+}
+
+export default function HeroComponent({ hero }: Props) {
+
   return (
     <View style={styles.card}>
-      <Image source={{ uri: heroAPI.image }} style={styles.image} />
 
-      <Text style={styles.name}>{heroAPI.name}</Text>
-      <Text>{heroAPI.power}</Text>
+      <Image source={{ uri: hero.image }} style={styles.image} />
+
+      <View style={styles.info}>
+        <Text style={styles.name}>{hero.name}</Text>
+        <Text style={styles.power}>⚡ Power: {hero.power}</Text>
+      </View>
+
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
-  card: {
-    padding: 15,
-    margin: 10,
-    backgroundColor: "#eee",
-    borderRadius: 10,
-    alignItems: "center"
+
+  card:{
+    flexDirection:"row",
+    backgroundColor:"#1c1c1c",
+    marginHorizontal:10,
+    marginVertical:6,
+    borderRadius:12,
+    overflow:"hidden"
   },
 
-  image: {
-    width: 100,
-    height: 100,
-    marginBottom: 10
+  image:{
+    width:90,
+    height:90
   },
 
-  name: {
-    fontSize: 18,
-    fontWeight: "bold"
+  info:{
+    padding:10,
+    justifyContent:"center"
+  },
+
+  name:{
+    color:"#fff",
+    fontSize:18,
+    fontWeight:"bold"
+  },
+
+  power:{
+    color:"#bbb",
+    marginTop:4
   }
+
 });

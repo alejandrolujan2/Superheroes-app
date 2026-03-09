@@ -1,10 +1,9 @@
 import { View } from "react-native";
-import HeroListComponent from "@/src/components/HeroListComponent/HeroListComponent";
-
+import ComponenteInternoComponent from "./ComponenteInternoComponent";
 export default function HomeScreen() {
   return (
-    <View>
-      <HeroListComponent />
+    <View style={{ flex: 1 }}>
+      <ComponenteInternoComponent />
     </View>
   );
 }

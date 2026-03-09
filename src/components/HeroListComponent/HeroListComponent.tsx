@@ -1,6 +1,6 @@
 import { FlatList } from "react-native";
 import HeroComponent from "../HeroComponent/HeroComponent";
-import { heroes } from "../../data/Heroes";
+import { heroes } from "../../data/heroes";
 
 export default function HeroListComponent() {
   return (
@@ -9,9 +9,7 @@ export default function HeroListComponent() {
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (
         <HeroComponent
-          name={item.name}
-          power={item.power}
-          image={item.image}
+          hero={item}
         />
       )}
     />
